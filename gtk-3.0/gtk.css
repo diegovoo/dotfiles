@@ -1,0 +1,18 @@
+headerbar entry,
+headerbar spinbutton,
+headerbar button,
+headerbar separator {
+    min-height: 24px;
+    margin-right: 2px; /* Make sure there's no margin on the right */
+    margin-top: 0px; /* Keep margin at 0px on the top */
+    margin-bottom: 0px; /* Keep margin at 0px on the bottom */
+}
+
+headerbar {
+    min-height: 24px;
+    padding-left: 10px; /* same as childrens vertical margins for nicer proportions */
+    padding-right: 10px;
+    margin: 0px; /* same as headerbar side padding for nicer proportions */
+}
+
+
