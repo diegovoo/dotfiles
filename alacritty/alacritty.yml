@@ -8,17 +8,9 @@
 #import:
 #  - /path/to/alacritty.yml
 
-# Any items in the `env` entry below will be added as
-# environment variables. Some entries may override variables
-# set by alacritty itself.
-#env:
-  # TERM variable
-  #
-  # This value is used to set the `$TERM` environment variable for
-  # each instance of Alacritty. If it is not present, alacritty will
-  # check the local terminfo database and use `alacritty` if it is
-  # available, otherwise `xterm-256color` is used.
-  #TERM: alacritty
+env:
+  TERM: xterm-256color
+
 window:
   dimensions:
     columns: 140
@@ -26,13 +18,14 @@ window:
 
 dynamic_title: true
 
+  
 colors:
   primary:
     background: '0x0C1C25'
     foreground: '0x86FFAF'
   cursor:
-    text: '0xEBEBEB'
-    cursor: '0x86FFAF'
+    text: CellBackground
+    cursor: CellForeground
   normal:
     black:   '0x0d0d0d'
     red:     '0xFF301B'
@@ -51,5 +44,3 @@ colors:
     magenta: '0xA578EA'
     cyan:    '0x73FBF1'
     white:   '0xFEFEF8'
-
-
