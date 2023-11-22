@@ -16,6 +16,7 @@ Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
 Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
+Plug 'jiangmiao/auto-pairs' "auto completes [] and () and makes life a bit easier
 
 call plug#end()
 
@@ -46,3 +47,4 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
 inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
+
