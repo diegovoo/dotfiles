@@ -17,6 +17,7 @@ Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
 Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'jiangmiao/auto-pairs' "auto completes [] and () and makes life a bit easier
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -48,3 +49,4 @@ let g:airline_symbols.linenr = ''
 
 inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 
+let g:vimwiki_list = [{'path': '~/OneDrive/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
