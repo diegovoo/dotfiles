@@ -1,13 +1,3 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator.
-
-# Import additional configuration files
-#
-# These configuration files will be loaded in order, replacing values in files
-# loaded earlier with those loaded later in the chain. The file itself will
-# always be loaded last.
-#import:
-#  - /path/to/alacritty.yml
-
 env:
   TERM: xterm-256color
 
@@ -22,9 +12,6 @@ colors:
     primary:
         background: "#1E1E2E" # base
         foreground: "#CDD6F4" # text
-        # Bright and dim foreground colors
-        # dim_foreground: "#CDD6F4" # text
-        #bright_foreground: "#CDD6F4" # text
 
     # Cursor colors
     cursor:
