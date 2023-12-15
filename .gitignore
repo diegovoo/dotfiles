@@ -1,0 +1,25 @@
+.gsd-keyboard.settings-ported
+Arduino IDE/
+Code/
+Cursor/
+QtProject.conf
+VirtualBox/
+appimagelauncher.cfg
+arduino-ide/
+coc/
+dconf/
+discord/
+eog/
+evolution/
+gnome-initial-setup-done
+ibus/
+mimeapps.list
+monitors.xml
+monitors.xml~
+onedrive/
+pulse/
+spotify/
+systemd/
+tiling-assistant/
+user-dirs.dirs
+user-dirs.locale
