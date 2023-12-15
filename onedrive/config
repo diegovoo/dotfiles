@@ -1,0 +1,6 @@
+skip_dir = "UPM/primero_informatica_upm"
+skip_dir = "UPM/segundo_informatica_upm"
+skip_dir = "UPM/tercero_informatica_upm/Aprobadas"
+skip_dir = "UPM/proyectos_propios"
+
+skip_dotfiles = "true"
