@@ -4,13 +4,13 @@ This repository contains my personal dotfiles, including configurations for vari
 
 ## Contents
 
-- [Alacritty](alacritty/)
+- [Alacritty](alacritty/alacritty.yml)
 - [GTK 3.0](gtk-3.0/)
 - [GTK 4.0](gtk-4.0/)
-- [GTK Settings](gtks/)
-- [Neovim](nvim/)
-- [OneDrive](onedrive/)
-- [.zshrc](.zshrc/)
+- [Neofetch](neofetch/config.conf)
+- [Neovim](nvim/init.vim)
+- [OneDrive](onedrive/config)
+- [.zshrc](.zshrc)
 
 ## Usage
 
@@ -18,5 +18,5 @@ This repository contains my personal dotfiles, including configurations for vari
 
 ```bash
 git clone https://github.com/diegovoo/.dotfiles.git
-
-h
+```
+now you can edit the config to your liking and move them to your ~/.config directory
