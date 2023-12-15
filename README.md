@@ -5,6 +5,8 @@ This repository contains my personal dotfiles, including configurations for vari
 ## Contents
 
 - [Alacritty](alacritty/alacritty.yml)
+Linux: $HOME/.config/alacritty/alacritty.yml
+Windows: %APPDATA%\alacritty\alacritty.yml
 - [GTK 3.0](gtk-3.0/)
 - [GTK 4.0](gtk-4.0/)
 - [Neofetch](neofetch/config.conf)
