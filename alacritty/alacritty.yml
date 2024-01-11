@@ -3,8 +3,10 @@ env:
 
 window:
   dimensions:
-    columns: 140
-    lines: 50
+    #columns: 140
+    #lines: 50
+    columns: 100
+    lines: 26
 
 dynamic_title: true
 

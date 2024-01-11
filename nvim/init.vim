@@ -10,6 +10,7 @@ set mouse=a
 set noshowmode
 set clipboard=unnamedplus
 set completeopt-=preview " For No Previews
+let mapleader = ","
 
 " Vim-Plug Setup
 call plug#begin()
@@ -22,6 +23,7 @@ Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'jiangmiao/auto-pairs' "auto completes [] and () and makes life a bit easier
 Plug 'vimwiki/vimwiki'
 Plug 'mhinz/vim-startify'
+Plug 'github/copilot.vim'
 
 call plug#end()
 
@@ -55,7 +57,6 @@ inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 " Vimwiki Settings
 let g:vimwiki_list = [{'path': '~/OneDrive/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_key_mappings = { 'table_mappings': 0 } " autocomplete comes back
-let mapleader = ","
 
 " Startify Settings
 let g:startify_bookmarks = [
@@ -93,5 +94,6 @@ let g:startify_files_number = 5 " Files shown in Recent Files
 " Update session automatically as you exit vim
 let g:startify_session_persistence= 1
 
-" End of Configuration
-
+" Function calls
+nnoremap <leader>dt :!done_tasks.sh<CR>
+nnoremap <leader>st :Startify<CR>
