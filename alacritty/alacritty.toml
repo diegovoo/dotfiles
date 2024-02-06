@@ -1,0 +1,50 @@
+[env]
+TERM = "xterm-256color"
+
+[window.dimensions]
+columns = 100
+lines = 26
+
+[colors.primary]
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+
+[colors.cursor]
+text = "#1E1E2E"
+cursor = "#F5E0DC"
+
+[colors.vi_mode_cursor]
+text = "#1E1E2E"
+cursor = "#B4BEFE"
+
+[colors.search.matches]
+foreground = "#1E1E2E"
+background = "#A6ADC8"
+
+[colors.search.focused_match]
+foreground = "#1E1E2E"
+background = "#A6E3A1"
+
+[colors.selection]
+text = "#1E1E2E"
+background = "#F5E0DC"
+
+[colors.normal]
+black = "0x0d0d0d"
+red = "0xFF301B"
+green = "0x49FF6D"
+yellow = "0xFFC620"
+blue = "0x1BA6FA"
+magenta = "0x8763B8"
+cyan = "0x21DEEF"
+white = "0xEBEBEB"
+
+[colors.bright]
+black = "0x6D7070"
+red = "0xFF4352"
+green = "0xB8E466"
+yellow = "0xFFD750"
+blue = "0x1BA6FA"
+magenta = "0xA578EA"
+cyan = "0x73FBF1"
+white = "0xFEFEF8"
