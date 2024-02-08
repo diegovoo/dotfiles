@@ -3,13 +3,12 @@ set number
 set relativenumber
 set autoindent
 set tabstop=4
-set shiftwidth=4
 set smarttab
 set softtabstop=4
 set mouse=a
 set noshowmode
 set clipboard=unnamedplus
-set completeopt-=preview " For No Previews
+" set completeopt-=preview " For No Previews
 let mapleader = ","
 
 " Vim-Plug Setup
@@ -17,20 +16,19 @@ call plug#begin()
 
 Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
-Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
-Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
-Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
-Plug 'jiangmiao/auto-pairs' "auto completes [] and () and makes life a bit easier
-Plug 'vimwiki/vimwiki'
-Plug 'mhinz/vim-startify'
-Plug 'github/copilot.vim'
+Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Color scheme
+" Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
+Plug 'https://github.com/ryanoasis/vim-devicons' " Icons
+" Plug 'jiangmiao/auto-pairs' "auto completes [] and ()
+Plug 'vimwiki/vimwiki' " note taking
+Plug 'mhinz/vim-startify' " statup page
+" Plug 'github/copilot.vim'
+Plug 'elixir-editors/vim-elixir' " elixir lang plug
 
 call plug#end()
 
 " NERDTree Settings
 nnoremap <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable="+"
-let g:NERDTreeDirArrowCollapsible="~"
 let NERDTreeShowHidden=1
 
 " Color Scheme
@@ -41,43 +39,20 @@ let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-
-" Airline Symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
-" Autocomplete
-inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
+let g:airline#extensions#whitespace#enabled = 0
 
 " Vimwiki Settings
 let g:vimwiki_list = [{'path': '~/OneDrive/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_key_mappings = { 'table_mappings': 0 } " autocomplete comes back
+autocmd BufWritePost *.md silent !~/scripts/vimwiki-to-git.sh &
 
 " Startify Settings
 let g:startify_bookmarks = [
             \ { 'n': '~/.config/nvim/init.vim' },
             \ { 'z': '~/.zshrc' },
             \ { 'u': '~/OneDrive/UPM/' },
-            \ '~/.config/vim/plugged/',
-            \ '~/AppData/Local/coc/ultisnips',
-            \ '~/.config/vim/Vim/vim82/',
             \ ]
 
-let g:ascii = [
- \ '                                         ▟▙            ',
- \ '                                         ▝▘            ',
- \ ' ██▃▅▇█▆▖  ▗▟████▙▖   ▄████▄   ██▄  ▄██  ██  ▗▟█▆▄▄▆█▙▖',
- \ ' ██▛▔ ▝██  ██▄▄▄▄██  ██▛▔▔▜██  ▝██  ██▘  ██  ██▛▜██▛▜██',
- \ ' ██    ██  ██▀▀▀▀▀▘  ██▖  ▗██   ▜█▙▟█▛   ██  ██  ██  ██',
- \ ' ██    ██  ▜█▙▄▄▄▟▊  ▀██▙▟██▀   ▝████▘   ██  ██  ██  ██',
- \ ' ▀▀    ▀▀   ▝▀▀▀▀▀     ▀▀▀▀       ▀▀     ▀▀  ▀▀  ▀▀  ▀▀',
- \ '',
- \]
+let g:ascii = []
 
 let g:startify_lists = [
           \ { 'type': 'files',     'header': ['   Recent Files']	  },
@@ -87,13 +62,13 @@ let g:startify_lists = [
           \ ]
 
 let g:startify_change_to_dir = 1
-let g:startify_fortune_use_unicode = 1
-let g:startify_custom_header = g:ascii + startify#fortune#boxed()
 " 'Most Recent Files' number
 let g:startify_files_number = 5 " Files shown in Recent Files
 " Update session automatically as you exit vim
 let g:startify_session_persistence= 1
+let g:startify_custom_header = g:ascii
 
-" Function calls
-nnoremap <leader>dt :!done_tasks.sh<CR>
+" Function calls and other mappings
+nnoremap <leader>dt :silent !done_tasks.sh<CR>
 nnoremap <leader>st :Startify<CR>
+nnoremap ya :%y<CR>
