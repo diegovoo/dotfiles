@@ -1,4 +1,5 @@
 . "$HOME/.cargo/env"
+export PATH=$PATH:/usr/local/go/bin
 export ZSH=~/.oh-my-zsh
 
 #scripts
