@@ -1,5 +1,8 @@
 let g:vimwiki_list = [{'path': '~/OneDrive/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
+" Makes md links as [foo](foo.md) instead of [foo](foo)
+let g:vimwiki_markdown_link_ext = 1
+
 autocmd BufWritePost *.md silent !~/scripts/vimwiki-to-git.sh &
 
 nnoremap <leader>wcc :call CreateClassWiki()<CR>

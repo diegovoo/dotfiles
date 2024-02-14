@@ -6,6 +6,14 @@ source ~/.config/nvim/options.vim
 
 source ~/.config/nvim/plugins.vim
 
+" Org mode
+
+" source ~/.config/nvim/orgmode.vim
+
+" Colorscheme
+
+source ~/.config/nvim/colorscheme.vim
+
 " NERDTree Settings
 
 source ~/.config/nvim/nerdtree.vim
