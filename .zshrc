@@ -50,3 +50,4 @@ alias :q='exit'
 # shutdown, suspend
 alias sdown='shutdown now'
 alias spend='systemctl suspend -i'
+
