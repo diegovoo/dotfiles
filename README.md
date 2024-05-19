@@ -1,16 +1,12 @@
 # Dotfiles Repository
 
-Welcome to my dotfiles repository! Here, you'll find configurations for various applications and shell settings that I use personally. Feel free to explore and customize them to suit your preferences.
+Welcome to my dotfiles repository! This collection contains my personal configurations for various applications and shell settings. Feel free to explore and adapt them to your own setup.
 
 ## Contents
 
-- **Alacritty**: [alacritty.yml](alacritty/alacritty.yml)
-  - Linux: `$HOME/.config/alacritty/alacritty.yml`
-  - Windows: `%APPDATA%\alacritty\alacritty.yml`
-
-- **GTK 3.0**: [gtk-3.0/](gtk-3.0/)
-
-- **GTK 4.0**: [gtk-4.0/](gtk-4.0/)
+- **Alacritty**: [alacritty.yml](alacritty/alacritty.toml)
+  - Linux: `$HOME/.config/alacritty/alacritty.toml`
+  - Windows: `%APPDATA%\alacritty\alacritty.toml`
 
 - **Neofetch**: [config.conf](neofetch/config.conf)
 
@@ -18,7 +14,11 @@ Welcome to my dotfiles repository! Here, you'll find configurations for various 
 
 - **OneDrive**: [config](onedrive/config)
 
-- **Zsh**: [.zshrc](.zshrc)
+- **Sway**: [config](sway/config)
+
+- **Zsh**
+  - [.zshenv](.zshenv)
+  - [.zshrc](.zshrc)
 
 ## Usage
 
@@ -28,4 +28,4 @@ Welcome to my dotfiles repository! Here, you'll find configurations for various 
 git clone https://github.com/diegovoo/.dotfiles.git
 ```
 
-Now, you have the repository cloned. Customize the configurations to your liking and move them to your `~/.config` directory. Enjoy your personalized environment!
+Once cloned, customize the configurations as needed and move them to your `~/.config` directory (or the appropriate location for your setup). Enjoy your personalized environment!

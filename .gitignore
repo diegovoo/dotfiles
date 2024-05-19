@@ -31,9 +31,7 @@ mimeapps.list
 mov-cli
 mpv
 nautilus
-neofetch
 nextjs-nodejs
-onedrive
 OpenComic
 pulse
 QtProject.conf
@@ -55,4 +53,38 @@ xdg-terminals.list
 yelp
 .gitignore.bak
 gtk-3.0/
-gtk-4.0
+gtk-4.0/
+Android Open Source Project/
+Bitwarden/
+Bootstrap Studio/
+Google/
+JetBrains/
+Virtual Cable S.L.U./
+alacritty/alacritty.toml.bak
+android-sdk/
+autostart/
+bstudio/
+create-next-app-nodejs/
+gnome-control-center/
+gtk-2.0/
+jgit/
+kactivitymanagerdrc
+kconf_updaterc
+kde.org/
+kdeglobals
+kglobalshortcutsrc
+microsoft-edge/
+monitors.xml
+monitors.xml~
+ngrok/
+okularpartrc
+okularrc
+onedrive/.config.backup
+onedrive/.config.hash
+onedrive/items.sqlite3
+onedrive/refresh_token
+org.coolercontrol.coolercontrol/
+totem/
+vokoscreenNG/
+zoom.conf
+zoomus.conf
