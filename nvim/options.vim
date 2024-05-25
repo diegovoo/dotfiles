@@ -6,6 +6,7 @@ set smarttab
 set mouse=a
 set noshowmode
 set clipboard+=unnamedplus
+
 set scrolloff=4
 
 let mapleader = ","

@@ -17,14 +17,6 @@ set_prompt() {
     PROMPT="%F{white}┌[%f%F{blue}%~%f%F{white}]%f${NEWLINE}%F{white}└[%f%F{green}%n%f%F{yellow}@%f%F{blue}%m%f%F{red}%}${branch}%F{white}]:%f "
 }
 
-def() {
-    (curl "dict://dict.org/d:"$1"")
-}
-
-shorten() {
-    (curl -s http://tinyurl.com/api-create.php?url="$1")
-}
-
 precmd_functions+=(set_prompt)
 set_prompt
 
@@ -33,7 +25,7 @@ plugins=(
  zsh-autosuggestions
 )
 
- source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 
 hash -d upm=~/OneDrive/UPM/
 hash -d upm1=~/OneDrive/UPM/primero_informatica_upm/
@@ -49,8 +41,11 @@ function acp() {
 
 alias vi="nvim"
 alias e="nvim"
-alias randomcommit="curl https://whatthecommit.com/index.txt"
-alias sdown='shutdown now'
-alias spend='systemctl suspend -i'
+
 alias tree="tree -C"
+
+alias randomcommit="curl https://whatthecommit.com/index.txt"
+
+alias sdown='shutdown now'
+alias spend='systemctl suspend'
 
