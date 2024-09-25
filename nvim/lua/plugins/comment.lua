@@ -8,7 +8,6 @@
 --
 -- File: plugins/comment.lua
 -- Description: nvim comment config
--- Author: Kien Nguyen-Tuan <kiennt2609@gmail.com>
 return {{
     -- Smart and powerful comment plugin for neovim.
     -- Supports treesitter, dot repeat, left-right/up-down motions, hooks, and more

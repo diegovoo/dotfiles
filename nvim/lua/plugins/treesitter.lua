@@ -8,7 +8,7 @@
 --
 -- File: plugins/treesitter.lua
 -- Description: nvim-treesitter configuration
--- Author: Kien Nguyen-Tuan <kiennt2609@gmail.com>
+
 return {{
     -- Treesitter interface
     "nvim-treesitter/nvim-treesitter",

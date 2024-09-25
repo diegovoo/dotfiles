@@ -8,7 +8,6 @@
 --
 -- File: plugins/autopairs.lua
 -- Description: nvim-autopairs config
--- Author: Kien Nguyen-Tuan <kiennt2609@gmail.com>
 return {{
     -- Autopairs
     "windwp/nvim-autopairs",

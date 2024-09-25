@@ -8,7 +8,7 @@
 --
 -- File: plugins/toggleterm.lua
 -- Description: A neovim lua plugin to help easily manage multiple terminal windows
--- Author: Kien Nguyen-Tuan <kiennt2609@gmail.com>
+
 return {{
     -- Floating terminal
     "akinsho/toggleterm.nvim",

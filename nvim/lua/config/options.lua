@@ -1,13 +1,6 @@
---
--- ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
--- ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
--- ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
--- ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
--- ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
--- ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
---
 -- File: config/options.lua
 -- Description: General Neovim settings and configuration
+
 local cmd = vim.cmd
 -- Set options (global/buffer/windows-scoped)
 local opt = vim.opt
@@ -22,9 +15,8 @@ cmd([[
 
 opt.backspace = {"eol", "start", "indent"} -- allow backspacing over everything in insert mode
 opt.clipboard:append("unnamedplus")
--- opt.clipboard = "unnamedplus" -- allow neovim to access the system clipboard
-vim.opt.fileencoding = "utf-8" -- the encoding written to a file
-opt.encoding = "utf-8" -- the encoding
+vim.opt.fileencoding = "utf-8"
+opt.encoding = "utf-8"
 opt.matchpairs = {"(:)", "{:}", "[:]", "<:>"}
 opt.syntax = "enable"
 
@@ -38,14 +30,14 @@ opt.tabstop = indent -- insert 2 spaces for a tab
 opt.shiftround = true -- use multiple of shiftwidth when indenting with "<" and ">"
 
 -- search
-opt.hlsearch = true -- highlight all matches on previous search pattern
+-- opt.hlsearch = true -- highlight all matches on previous search pattern
 opt.ignorecase = true -- ignore case in search patterns
 opt.smartcase = true -- smart case
-opt.wildignore = opt.wildignore + {"*/node_modules/*", "*/.git/*", "*/vendor/*"}
+-- opt.wildignore = opt.wildignore + {"*/node_modules/*", "*/.git/*", "*/vendor/*"}
 opt.wildmenu = true -- make tab completion for files/buffers act like bash
 
 -- ui
-opt.cursorline = true -- highlight the current line
+-- opt.cursorline = true -- highlight the current line
 opt.laststatus = 2 -- only the last window will always have a status line
 opt.lazyredraw = true -- don"t update the display while executing macros
 opt.list = true
@@ -63,7 +55,8 @@ opt.cmdheight = 0 -- more space in the neovim command line for displaying messag
 
 opt.mouse = "a" -- allow the mouse to be used in neovim
 opt.number = true -- set numbered lines
-opt.scrolloff = 18 -- minimal number of screen lines to keep above and below the cursor
+opt.relativenumber = true
+opt.scrolloff = 10 -- minimal number of screen lines to keep above and below the cursor
 opt.sidescrolloff = 3 -- minimal number of screen columns to keep to the left and right (horizontal) of the cursor if wrap is `false`
 opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
 opt.splitbelow = true -- open new split below

@@ -1,15 +1,8 @@
---
--- ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
--- ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
--- ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
--- ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
--- ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
--- ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
---
 -- File: config/keymaps.lua
 -- Description: Key mapping configs
+
 -- Close all windows and exit from Neovim with <leader> and q
-vim.keymap.set("n", "<leader>q", ":qa!<CR>", {})
+--vim.keymap.set("n", "<leader>q", ":qa!<CR>", {})
 -- Fast saving with <leader> and s
 vim.keymap.set("n", "<leader>s", ":w<CR>", {})
 -- Move around splits
@@ -19,10 +12,9 @@ vim.keymap.set("n", "<leader>wk", "<C-w>k", {})
 vim.keymap.set("n", "<leader>wl", "<C-w>l", {})
 
 -- Reload configuration without restart nvim
-vim.keymap.set("n", "<leader>r", ":so %<CR>", {})
+--vim.keymap.set("n", "<leader>r", ":so %<CR>", {})
 
 -- Telescope
--- <leader> is a space now
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
@@ -49,3 +41,6 @@ end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 vim.keymap.set("n", "<leader>tt", ":ToggleTerm<CR>", {})
+
+-- Vimwiki nnoremap
+vim.keymap.set("n", "<leader>dt", ":silent !done_tasks.sh")
