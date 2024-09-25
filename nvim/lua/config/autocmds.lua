@@ -28,6 +28,6 @@ autocmd("Filetype", {
 autocmd("BufWritePost", {
     pattern = "*.md",
     callback = function()
-        vim.fn.system("~/scripts/vimwiki-to-git.sh &")
+        vim.fn.system("~/.local/bin/vimwiki-to-git.sh &")
     end
 })
