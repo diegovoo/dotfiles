@@ -74,7 +74,8 @@ return { -- LSP
             gopls = {},
             ruff_lsp = {},
             vimls = {},
-            yamlls = {}
+            yamlls = {},
+            clangd = {}
         },
         -- you can do any additional lsp server setup here
         -- return true if you don"t want this server to be setup with lspconfig
@@ -155,11 +156,11 @@ return { -- LSP
         null_ls.setup({
             debug = false,
             sources = {formatting.prettier.with {
-                extra_filetypes = {"toml"},
-                extra_args = {"--no-semi", "--single-quote", "--jsx-single-quote"}
-            }, formatting.black.with {
-                extra_args = {"--fast"}
-            }, formatting.stylua, formatting.google_java_format, diagnostics.flake8}
+                          extra_filetypes = {"toml"},
+                    extra_args = {"--no-semi", "--single-quote", "--jsx-single-quote"}
+                        }, formatting.black.with {
+                        extra_args = {"--fast"}
+             }, formatting.stylua, formatting.google_java_format, diagnostics.flake8}
         })
     end
 }, -- Snippets

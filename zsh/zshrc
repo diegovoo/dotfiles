@@ -73,7 +73,7 @@ alias la='ls -lA'
 alias tree="tree -C"
 alias randomcommit="curl https://whatthecommit.com/index.txt"
 alias sdown='shutdown now'
-alias spend='systemctl suspend'
+alias spend='systemctl suspend -i'
 
 # Shell integrations
 eval "$(fzf --zsh)" # use Ctrl + R / Ctrl + T
