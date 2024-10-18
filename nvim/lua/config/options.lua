@@ -13,6 +13,7 @@ cmd([[
 	filetype plugin indent on
 ]])
 
+opt.spell = false
 opt.backspace = {"eol", "start", "indent"} -- allow backspacing over everything in insert mode
 opt.clipboard:append("unnamedplus")
 vim.opt.fileencoding = "utf-8"

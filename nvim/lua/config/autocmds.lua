@@ -20,7 +20,7 @@ autocmd("Filetype", {
     pattern = {"gitcommit", "markdown", "text"},
     callback = function()
         vim.opt_local.wrap = true
-        vim.opt_local.spell = true
+        vim.opt_local.spell = false
     end
 })
 
