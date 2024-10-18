@@ -43,4 +43,4 @@ vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 vim.keymap.set("n", "<leader>tt", ":ToggleTerm<CR>", {})
 
 -- Vimwiki nnoremap
-vim.keymap.set("n", "<leader>dt", ":silent !done_tasks.sh")
+vim.keymap.set("n", "<leader>dt", "<CR>:silent !done_tasks.sh<CR>")

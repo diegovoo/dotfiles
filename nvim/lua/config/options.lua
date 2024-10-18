@@ -51,13 +51,13 @@ opt.listchars = {
     nbsp = "×"
 }
 
--- Hide cmd line
+-- Hide cmd line !! CARE (if something breaks no info will be shown at startup)
 opt.cmdheight = 0 -- more space in the neovim command line for displaying messages
 
 opt.mouse = "a" -- allow the mouse to be used in neovim
 opt.number = true -- set numbered lines
 opt.relativenumber = true
-opt.scrolloff = 10 -- minimal number of screen lines to keep above and below the cursor
+opt.scrolloff = 12 -- minimal number of screen lines to keep above and below the cursor
 opt.sidescrolloff = 3 -- minimal number of screen columns to keep to the left and right (horizontal) of the cursor if wrap is `false`
 opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
 opt.splitbelow = true -- open new split below
