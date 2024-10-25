@@ -1,24 +1,13 @@
---
--- ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
--- ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
--- ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
--- ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
--- ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
--- ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
---
 -- File: plugins/lualine.lua
 -- Description: Pacman config for lualine
 
 return {{
-    -- Statusline
-    -- A blazing fast and easy to configure neovim statusline plugin written in pure lua.
     "nvim-lualine/lualine.nvim",
     config = function(_)
         local lualine = require("lualine")
         local lualine_require = require("lualine_require")
 
         function loadcolors()
-            -- Rose-pine palette
             local rosepine = require("rose-pine.palette")
             local colors = {
                 bg = rosepine.base,
@@ -201,7 +190,7 @@ return {{
 
         ins_left {
             "branch",
-            icon = " ",
+            icon = " ",
             color = {
                 fg = colors.blue,
                 gui = "bold"
@@ -322,7 +311,6 @@ return {{
             }
         }
 
-        -- Now don"t forget to initialize lualine
         lualine.setup(config)
     end
 }}

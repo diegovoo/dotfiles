@@ -1,11 +1,3 @@
---
--- ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
--- ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
--- ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
--- ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
--- ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
--- ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
---
 -- File: plugins/lsp.lua
 -- Description: LSP setup and configs
 
@@ -75,7 +67,13 @@ return { -- LSP
             ruff_lsp = {},
             vimls = {},
             yamlls = {},
-            clangd = {}
+            clangd = {
+                -- Disable formatting for clangd
+                on_attach = function(client, _)
+                    client.server_capabilities.documentFormattingProvider = false
+                    client.server_capabilities.documentRangeFormattingProvider = false
+                end
+            }
         },
         -- you can do any additional lsp server setup here
         -- return true if you don"t want this server to be setup with lspconfig
