@@ -1,4 +1,6 @@
 . "$HOME/.cargo/env"
-PATH="$HOME/.local/bin:$PATH"
+PATH="$HOME/.local/bin:$PATH:/usr/local/go/bin"
 export PATH
+
+export COPPELIASIM_ROOT_DIR=/opt/coppeliaSim
 

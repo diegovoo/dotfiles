@@ -20,21 +20,21 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
+#zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 # zinit light Aloxaf/fzf-tab
 
 # Load completions
-autoload -Uz compinit && compinit
+#autoload -Uz compinit && compinit
 
 # zinit cdreplay -q
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # History
-HISTSIZE=5000
+HISTSIZE=2000
 HISTFILE=$HOME/.cache/zsh/zsh_history
+mkdir -p "$HOME/.cache/zsh" && touch "$HISTFILE"
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 setopt appendhistory
@@ -59,22 +59,16 @@ hash -d upm2=~/OneDrive/UPM/segundo_informatica_upm/
 hash -d upm3=~/OneDrive/UPM/tercero_informatica_upm/
 hash -d upm4=~/OneDrive/UPM/cuarto_informatica/
 
-function acp() {
-  git add .
-  git commit -m "$1"
-  git push
-}
-
 # Aliases
 alias vi="nvim"
-alias e="nvim"
+alias :q="exit"
 alias ls='ls --color'
 alias la='ls -lA'
 alias tree="tree -C"
-alias randomcommit="curl https://whatthecommit.com/index.txt"
 alias sdown='shutdown now'
 alias spend='systemctl suspend -i'
 
 # Shell integrations
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)" # use Ctrl + R / Ctrl + T
 # eval "$(zoxide init --cmd cd zsh)"
