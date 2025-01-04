@@ -24,19 +24,24 @@ vim.keymap.set("n", "<leader>nf", ":NvimTreeFindFile<CR>", {}) -- search file
 
 -- Terminal
 function _G.set_terminal_keymaps()
-    local opts = {
-        noremap = true
-    }
-    vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
-    vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
-    vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-    vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
-    vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
-    vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
+    local opts = { noremap = true }
+    -- Exit terminal mode with <esc>
+    vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts) 
 end
 
+-- Apply terminal keybinds when opening a terminal
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
+-- Open terminal with <leader>tt
 vim.keymap.set("n", "<leader>tt", ":ToggleTerm<CR>", {})
 
--- Vimwiki nnoremap
+-- Moves done tasks from vimwiki to a done tasks file (done tasks have this format [X])
 vim.keymap.set("n", "<leader>dt", "<CR>:silent !done_tasks.sh<CR>")
+
+-- Alpha nvim
+vim.keymap.set("n", "<leader>al", ":Alpha<CR>", {})
+
+-- Prevent 'd' and 'dd' from copying deleted text
+vim.keymap.set("n", "d", '"_d', { noremap = true, silent = true })
+vim.keymap.set("n", "dd", '"_dd', { noremap = true, silent = true })
+vim.keymap.set("v", "d", '"_d', { noremap = true, silent = true })
