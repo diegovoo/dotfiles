@@ -20,14 +20,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
-#zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
-# zinit light Aloxaf/fzf-tab
-
-# Load completions
-#autoload -Uz compinit && compinit
-
-# zinit cdreplay -q
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -51,7 +44,6 @@ eval $(dircolors)
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 autoload colors && colors
 zstyle ':completion:*' menu select
-# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 hash -d upm=~/OneDrive/UPM/
 hash -d upm1=~/OneDrive/UPM/primero_informatica_upm/
@@ -69,6 +61,4 @@ alias sdown='shutdown now'
 alias spend='systemctl suspend -i'
 
 # Shell integrations
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)" # use Ctrl + R / Ctrl + T
-# eval "$(zoxide init --cmd cd zsh)"
