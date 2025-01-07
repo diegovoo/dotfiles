@@ -1,26 +1,28 @@
 -- File: config/keymaps.lua
 -- Description: Key mapping configs
 
+local keymap = vim.keymap
+
 -- Move around splits
-vim.keymap.set("n", "<leader>wh", "<C-w>h", {})
-vim.keymap.set("n", "<leader>wj", "<C-w>j", {})
-vim.keymap.set("n", "<leader>wk", "<C-w>k", {})
-vim.keymap.set("n", "<leader>wl", "<C-w>l", {})
+keymap.set("n", "<leader>wh", "<C-w>h", {})
+keymap.set("n", "<leader>wj", "<C-w>j", {})
+keymap.set("n", "<leader>wk", "<C-w>k", {})
+keymap.set("n", "<leader>wl", "<C-w>l", {})
 
 -- Reload configuration without restart nvim
-vim.keymap.set("n", "<leader>r", ":so %<CR>", {})
+keymap.set("n", "<leader>r", ":so %<CR>", {})
 
 -- Telescope
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+keymap.set("n", "<leader>ff", builtin.find_files, {})
+keymap.set("n", "<leader>fg", builtin.live_grep, {})
+keymap.set("n", "<leader>fb", builtin.buffers, {})
+keymap.set("n", "<leader>fh", builtin.help_tags, {})
 
 -- NvimTree
-vim.keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>", {}) -- open/close
-vim.keymap.set("n", "<leader>nr", ":NvimTreeRefresh<CR>", {}) -- refresh
-vim.keymap.set("n", "<leader>nf", ":NvimTreeFindFile<CR>", {}) -- search file
+keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>", {}) -- open/close
+keymap.set("n", "<leader>nr", ":NvimTreeRefresh<CR>", {}) -- refresh
+keymap.set("n", "<leader>nf", ":NvimTreeFindFile<CR>", {}) -- search file
 
 -- Terminal
 function _G.set_terminal_keymaps()
@@ -33,15 +35,25 @@ end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 -- Open terminal with <leader>tt
-vim.keymap.set("n", "<leader>tt", ":ToggleTerm<CR>", {})
+keymap.set("n", "<leader>tt", ":ToggleTerm<CR>", {})
 
 -- Moves done tasks from vimwiki to a done tasks file (done tasks have this format [X])
-vim.keymap.set("n", "<leader>dt", "<CR>:silent !done_tasks.sh<CR>")
+keymap.set("n", "<leader>dt", "<CR>:silent !done_tasks.sh<CR>")
 
 -- Alpha nvim
-vim.keymap.set("n", "<leader>al", ":Alpha<CR>", {})
+keymap.set("n", "<leader>al", ":Alpha<CR>", {})
 
 -- Prevent 'd' and 'dd' from copying deleted text
-vim.keymap.set("n", "d", '"_d', { noremap = true, silent = true })
-vim.keymap.set("n", "dd", '"_dd', { noremap = true, silent = true })
-vim.keymap.set("v", "d", '"_d', { noremap = true, silent = true })
+keymap.set("n", "d", '"_d', { noremap = true, silent = true })
+keymap.set("n", "dd", '"_dd', { noremap = true, silent = true })
+keymap.set("v", "d", '"_d', { noremap = true, silent = true })
+
+-- Split view keybinds
+keymap.set("n", "<leader>sv", ":vsplit<CR>", { noremap = true, silent = true }) -- Vertical split
+keymap.set("n", "<leader>sh", ":split<CR>", { noremap = true, silent = true })  -- Horizontal split
+
+-- Clear search
+keymap.set("n", "<leader>cs", ":noh<CR>", { noremap = true, silent = true })
+
+-- Formatting
+keymap.set("n", "<leader>f", ":lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })

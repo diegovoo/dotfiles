@@ -2,8 +2,8 @@
 -- Description: General Neovim settings and configuration
 
 local cmd = vim.cmd
--- Set options (global/buffer/windows-scoped)
 local opt = vim.opt
+
 -- Global variables
 local g = vim.g
 local s = vim.s
@@ -63,6 +63,7 @@ opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift 
 opt.splitbelow = true -- open new split below
 opt.splitright = true -- open new split to the right
 opt.wrap = false -- display a long line
+opt.cursorline = true
 
 -- backups
 opt.backup = false -- create a backup file
