@@ -62,3 +62,4 @@ alias cpfile='xclip -sel c <'
 
 # Shell integrations
 eval "$(fzf --zsh)" # use Ctrl + R / Ctrl + T
+

@@ -59,3 +59,7 @@ blue = "0x1BA6FA"
 magenta = "0xA578EA"
 cyan = "0x73FBF1"
 white = "0xFEFEF8"
+
+[window]
+decorations = "full"
+decorations_theme_variant = "Dark"
