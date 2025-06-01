@@ -1,7 +1,10 @@
-. "$HOME/.cargo/env"
+#. "$HOME/.cargo/env"
 PATH="$HOME/.local/bin:$PATH:/usr/local/go/bin"
 PATH="/usr/local/bin:$PATH"
 export PATH
 
 export COPPELIASIM_ROOT_DIR=/opt/coppeliaSim
 
+if [[ ! "$PATH" == */home/m1tus/.fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}/home/m1tus/.fzf/bin"
+fi

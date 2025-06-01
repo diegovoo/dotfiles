@@ -1,22 +1,7 @@
---
--- ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
--- ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
--- ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
--- ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
--- ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
--- ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
---
--- File: plugins/colorizer.lua
--- Description: nvim-colorizer config
-return { -- colorizer
-{
-    "norcalli/nvim-colorizer.lua",
-    config = function(_)
+return {
+    "NvChad/nvim-colorizer.lua",
+    event = "BufReadPre",
+    config = function()
         require("colorizer").setup()
-
-        -- execute colorizer as soon as possible
-        vim.defer_fn(function()
-            require("colorizer").attach_to_buffer(0)
-        end, 0)
-    end
-}}
+    end,
+}

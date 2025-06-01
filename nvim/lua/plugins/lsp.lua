@@ -38,16 +38,16 @@ return { -- LSP
     "neovim/nvim-lspconfig",
     event = {"BufReadPre", "BufNewFile"},
     lazy = true,
-    dependencies = { -- Mason
-    -- Portable package manager for Neovim that runs everywhere Neovim runs.
-    -- Easily install and manage LSP servers, DAP servers, linters, and formatters.
-    {"williamboman/mason.nvim"}, {"williamboman/mason-lspconfig.nvim"}, -- Autocomplete
-    -- A completion plugin for neovim coded in Lua.
-    {
-        "hrsh7th/nvim-cmp",
-        dependencies = {"L3MON4D3/LuaSnip", "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-path", "hrsh7th/cmp-buffer",
-                        "saadparwaiz1/cmp_luasnip"}
-    }},
+    dependencies = {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "hrsh7th/nvim-cmp", -- Only as a string, not a table!
+        "L3MON4D3/LuaSnip",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-buffer",
+        "saadparwaiz1/cmp_luasnip"
+    },
     opts = {
         -- Automatically format on save
         autoformat = true,
@@ -63,7 +63,7 @@ return { -- LSP
             jsonls = {},
             dockerls = {},
             bashls = {},
-            gopls = {},
+            --- gopls = {},
             ruff_lsp = {},
             vimls = {},
             yamlls = {},
@@ -108,14 +108,6 @@ return { -- LSP
             require("lspconfig")[server].setup(server_opts)
         end
 
-        -- temp fix for lspconfig rename
-        -- https://github.com/neovim/nvim-lspconfig/pull/2439
-        local mappings = require("mason-lspconfig.mappings.server")
-        if not mappings.lspconfig_to_package.lua_ls then
-            mappings.lspconfig_to_package.lua_ls = "lua-language-server"
-            mappings.package_to_lspconfig["lua-language-server"] = "lua_ls"
-        end
-
         local mlsp = require("mason-lspconfig")
         local available = mlsp.get_available_servers()
 
@@ -137,59 +129,72 @@ return { -- LSP
             ensure_installed = ensure_installed,
             automatic_installation = true
         })
-        require("mason-lspconfig").setup_handlers({setup})
+
+        -- Compatibility: use setup_handlers if available, else fallback to manual setup
+        if mlsp.setup_handlers then
+            mlsp.setup_handlers({setup})
+        else
+            for _, server in ipairs(mlsp.get_installed_servers()) do
+                setup(server)
+            end
+        end
     end
 }, {
     -- Use Neovim as a language server to inject LSP diagnostics,
     -- code actions, and more via Lua.
     "nvimtools/none-ls.nvim",
     lazy = false,
-}, -- Snippets
+}, -- Snippets & Completion
 {
-    -- load luasnips + cmp related in insert mode only
+    -- nvim-cmp main plugin spec (keep all opts/config here)
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
-    dependencies = {{
-        -- snippet plugin
-        "L3MON4D3/LuaSnip",
-        dependencies = "rafamadriz/friendly-snippets",
-        opts = {
-            history = true,
-            updateevents = "TextChanged,TextChangedI"
-        },
-        config = function(_, opts)
-            require("luasnip").config.set_config(opts)
+    dependencies = {
+        {
+            -- snippet plugin
+            "L3MON4D3/LuaSnip",
+            dependencies = "rafamadriz/friendly-snippets",
+            opts = {
+                history = true,
+                updateevents = "TextChanged,TextChangedI"
+            },
+            config = function(_, opts)
+                require("luasnip").config.set_config(opts)
 
-            -- vscode format
-            require("luasnip.loaders.from_vscode").lazy_load()
-            require("luasnip.loaders.from_vscode").lazy_load {
-                paths = vim.g.vscode_snippets_path or ""
-            }
+                -- vscode format
+                require("luasnip.loaders.from_vscode").lazy_load()
+                require("luasnip.loaders.from_vscode").lazy_load {
+                    paths = vim.g.vscode_snippets_path or ""
+                }
 
-            -- snipmate format
-            require("luasnip.loaders.from_snipmate").load()
-            require("luasnip.loaders.from_snipmate").lazy_load {
-                paths = vim.g.snipmate_snippets_path or ""
-            }
+                -- snipmate format
+                require("luasnip.loaders.from_snipmate").load()
+                require("luasnip.loaders.from_snipmate").lazy_load {
+                    paths = vim.g.snipmate_snippets_path or ""
+                }
 
-            -- lua format
-            require("luasnip.loaders.from_lua").load()
-            require("luasnip.loaders.from_lua").lazy_load {
-                paths = vim.g.lua_snippets_path or ""
-            }
+                -- lua format
+                require("luasnip.loaders.from_lua").load()
+                require("luasnip.loaders.from_lua").lazy_load {
+                    paths = vim.g.lua_snippets_path or ""
+                }
 
-            vim.api.nvim_create_autocmd("InsertLeave", {
-                callback = function()
-                    if require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()] and
-                        not require("luasnip").session.jump_active then
-                        require("luasnip").unlink_current()
+                vim.api.nvim_create_autocmd("InsertLeave", {
+                    callback = function()
+                        if require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()] and
+                            not require("luasnip").session.jump_active then
+                            require("luasnip").unlink_current()
+                        end
                     end
-                end
-            })
-        end
+                })
+            end
+        },
+        "saadparwaiz1/cmp_luasnip",
+        "hrsh7th/cmp-nvim-lua",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path"
     },
-                    {"saadparwaiz1/cmp_luasnip", "hrsh7th/cmp-nvim-lua", "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer",
-                     "hrsh7th/cmp-path"}}, -- cmp sources plugins
     opts = function()
         local cmp = require "cmp"
 
