@@ -1,29 +1,23 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-# Set the directory we want to store zinit and plugins
+
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
-# Download Zinit, if it's not there yet
 if [ ! -d "$ZINIT_HOME" ]; then
    mkdir -p "$(dirname $ZINIT_HOME)"
    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
-# Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Add in Powerlevel10k
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
-# Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# History
 HISTSIZE=2000
 HISTFILE=$HOME/.cache/zsh/zsh_history
 mkdir -p "$HOME/.cache/zsh" && touch "$HISTFILE"
@@ -37,7 +31,6 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 eval $(dircolors)
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -50,7 +43,6 @@ hash -d upm2=~/OneDrive/UPM/segundo_informatica_upm/
 hash -d upm3=~/OneDrive/UPM/tercero_informatica_upm/
 hash -d upm4=~/OneDrive/UPM/cuarto_informatica/
 
-# Aliases
 alias vi="nvim"
 alias :q="exit"
 alias ls='ls --color'
@@ -60,6 +52,4 @@ alias sdown='shutdown now'
 alias spend='systemctl suspend -i'
 alias cpfile='xclip -sel c <'
 
-# Shell integrations
 eval "$(fzf --zsh)" # use Ctrl + R / Ctrl + T
-
