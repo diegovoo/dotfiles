@@ -1,10 +1,10 @@
 [font.bold]
 family = "JetBrainsMono Nerd Font"
-style= "Bold"
+style = "Bold"
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
-style= "Regular"
+style = "Regular"
 
 [font.italic]
 family = "JetBrainsMono Nerd Font"
@@ -12,13 +12,18 @@ family = "JetBrainsMono Nerd Font"
 [env]
 TERM = "xterm-256color"
 
+[window]
+decorations = "full"
+decorations_theme_variant = "Dark"
+opacity = 1.0
+
 [window.dimensions]
 columns = 120
 lines = 30
 
 [colors.primary]
-background = "#1E1E2E"
-foreground = "#CDD6F4"
+background = "#1e1e1e"     # macOS dark gray
+foreground = "#CDD6F4"     # WhiteSur light text
 
 [colors.cursor]
 text = "#1E1E2E"
@@ -41,25 +46,21 @@ text = "#1E1E2E"
 background = "#F5E0DC"
 
 [colors.normal]
-black = "0x0d0d0d"
-red = "0xFF301B"
-green = "0x49FF6D"
-yellow = "0xFFC620"
-blue = "0x1BA6FA"
-magenta = "0x8763B8"
-cyan = "0x21DEEF"
-white = "0xEBEBEB"
+black   = "0x0d0d0d"
+red     = "#ff453a"
+green   = "#32d74b"
+yellow  = "#ffd60a"
+blue    = "#0a84ff"
+magenta = "#bf5af2"
+cyan    = "#5ac8fa"
+white   = "#f2f2f7"
 
 [colors.bright]
-black = "0x6D7070"
-red = "0xFF4352"
-green = "0xB8E466"
-yellow = "0xFFD750"
-blue = "0x1BA6FA"
-magenta = "0xA578EA"
-cyan = "0x73FBF1"
-white = "0xFEFEF8"
-
-[window]
-decorations = "full"
-decorations_theme_variant = "Dark"
+black   = "#3a3a3c"
+red     = "#ff6961"
+green   = "#63e6a0"
+yellow  = "#ffe168"
+blue    = "#4facff"
+magenta = "#d28cff"
+cyan    = "#89e2ff"
+white   = "#ffffff"
