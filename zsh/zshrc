@@ -37,12 +37,6 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 autoload colors && colors
 zstyle ':completion:*' menu select
 
-hash -d upm=~/OneDrive/UPM/
-hash -d upm1=~/OneDrive/UPM/primero_informatica_upm/
-hash -d upm2=~/OneDrive/UPM/segundo_informatica_upm/
-hash -d upm3=~/OneDrive/UPM/tercero_informatica_upm/
-hash -d upm4=~/OneDrive/UPM/cuarto_informatica/
-
 alias vi="nvim"
 alias :q="exit"
 alias ls='ls --color'
@@ -51,5 +45,41 @@ alias tree="tree -C"
 alias sdown='shutdown now'
 alias spend='systemctl suspend -i'
 alias cpfile='xclip -sel c <'
+alias firejail-firefox='firejail --private=~/.firejail-browser-home firefox'
 
-eval "$(fzf --zsh)" # use Ctrl + R / Ctrl + T
+# TLP
+alias performance='sudo cp /etc/tlp-performance.conf /etc/tlp.conf && sudo tlp start'
+alias power_save='sudo cp /etc/tlp-power-efficient.conf /etc/tlp.conf && sudo tlp start'
+
+if [[ ":$PATH:" != *":$HOME/.fzf/bin:"* ]]; then
+  export PATH="$PATH:$HOME/.fzf/bin"
+fi
+
+eval "$(fzf --zsh)"
+
+nvm_lazy_load() {
+  unset -f nvm node npm npx
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  command "$@"
+}
+
+nvm()  { nvm_lazy_load nvm  "$@"; }
+node() { nvm_lazy_load node "$@"; }
+npm()  { nvm_lazy_load npm  "$@"; }
+npx()  { nvm_lazy_load npx  "$@"; }
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/opt/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
