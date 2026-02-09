@@ -116,20 +116,17 @@ keymap.set("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", { noremap = true,
 -- BUFFER/TAB NAVIGATION (Multiple tabs like VSCode)
 -- ============================================================================
 -- Navigate between buffers (tabs)
-keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true, desc = "→ Next tab" })
-keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true, desc = "← Previous tab" })
 keymap.set("n", "<leader>bp", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true, desc = "← Previous buffer" })
 keymap.set("n", "<leader>bn", ":BufferLineCycleNext<CR>", { noremap = true, silent = true, desc = "→ Next buffer" })
 keymap.set("n", "<leader>bc", ":bdelete<CR>", { noremap = true, silent = true, desc = "✖ Close current buffer" })
 keymap.set("n", "<leader>bo", ":BufferLineCloseOthers<CR>", { noremap = true, silent = true, desc = "✖ Close other buffers" })
 
 -- Go to specific buffer by number (like Ctrl+1, Ctrl+2 in VSCode)
-keymap.set("n", "<leader>1", ":BufferLineGoToBuffer 1<CR>", { noremap = true, silent = true, desc = "Go to buffer 1" })
-keymap.set("n", "<leader>2", ":BufferLineGoToBuffer 2<CR>", { noremap = true, silent = true, desc = "Go to buffer 2" })
-keymap.set("n", "<leader>3", ":BufferLineGoToBuffer 3<CR>", { noremap = true, silent = true, desc = "Go to buffer 3" })
-keymap.set("n", "<leader>4", ":BufferLineGoToBuffer 4<CR>", { noremap = true, silent = true, desc = "Go to buffer 4" })
-keymap.set("n", "<leader>5", ":BufferLineGoToBuffer 5<CR>", { noremap = true, silent = true, desc = "Go to buffer 5" })
-
+keymap.set("n", "<C-1>", ":BufferLineGoToBuffer 1<CR>", { noremap = true, silent = true, desc = "Go to buffer 1" })
+keymap.set("n", "<C-2>", ":BufferLineGoToBuffer 2<CR>", { noremap = true, silent = true, desc = "Go to buffer 2" })
+keymap.set("n", "<C-3>", ":BufferLineGoToBuffer 3<CR>", { noremap = true, silent = true, desc = "Go to buffer 3" })
+keymap.set("n", "<C-4>", ":BufferLineGoToBuffer 4<CR>", { noremap = true, silent = true, desc = "Go to buffer 4" })
+keymap.set("n", "<C-5>", ":BufferLineGoToBuffer 5<CR>", { noremap = true, silent = true, desc = "Go to buffer 5" })
 -- ============================================================================
 -- WHICH-KEY HELP
 -- ============================================================================
