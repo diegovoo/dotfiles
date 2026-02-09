@@ -1,6 +1,3 @@
--- File: config/init.lua
--- Description: Main configurations
-
 -- Lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -11,7 +8,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = ","
-vim.opt.termguicolors = true -- enable 24-bit RGB colors
+vim.opt.termguicolors = true 
 
 -- build spec
 local spec = {{
@@ -28,25 +25,23 @@ if ok then
 end
 
 require("lazy").setup({
-    root = vim.fn.stdpath("data") .. "/lazy", -- directory where plugins will be installed
+    root = vim.fn.stdpath("data") .. "/lazy",
     spec = spec,
-    lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json", -- lockfile generated after running update.
+    lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json",
     defaults = {
-        lazy = false, -- should plugins be lazy-loaded?
+        lazy = false,
         version = nil
-        -- version = "*", -- enable this to try installing the latest stable versions of plugins
     },
     install = {
         -- install missing plugins on startup
         missing = true,
-        -- try to load one of these colorschemes when starting an installation during startup
-        colorscheme = {"rose-pine", "habamax", "catppuccin"}
+        -- Updated colorscheme list to include monokai-pro
+        colorscheme = {"monokai-pro", "habamax"}
     },
     checker = {
         -- automatically check for plugin updates
         enabled = true,
         -- get a notification when new updates are found
-        -- disable it as it's too annoying
         notify = false,
         -- check for updates every day
         frequency = 86400
@@ -55,7 +50,6 @@ require("lazy").setup({
         -- automatically check for config file changes and reload the ui
         enabled = true,
         -- get a notification when changes are found
-        -- disable it as it's too annoying
         notify = false
     },
     performance = {

@@ -51,6 +51,9 @@ alias firejail-firefox='firejail --private=~/.firejail-browser-home firefox'
 alias performance='sudo cp /etc/tlp-performance.conf /etc/tlp.conf && sudo tlp start'
 alias power_save='sudo cp /etc/tlp-power-efficient.conf /etc/tlp.conf && sudo tlp start'
 
+# Zathura
+alias zathura='zathura --fork'
+
 if [[ ":$PATH:" != *":$HOME/.fzf/bin:"* ]]; then
   export PATH="$PATH:$HOME/.fzf/bin"
 fi
@@ -82,4 +85,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-

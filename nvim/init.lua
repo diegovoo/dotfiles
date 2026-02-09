@@ -1,7 +1,3 @@
--- File: init.lua
--- Description: Initial configurations
-
--- Prerequisites reminder
 if vim.fn.has('nvim-0.8') == 0 then
     error('Need Neovim 0.8+ in order to use this config')
 end
@@ -24,5 +20,4 @@ for _, cmd in ipairs({"git", "rg", {"fd", "fdfind"}}) do
     end
 end
 
--- Loads all files in config folder
 require("config")

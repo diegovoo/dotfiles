@@ -1,5 +1,9 @@
--- File: config/options.lua
--- Description: General Neovim settings and configuration
+-- ============================================================================
+-- NEOVIM OPTIONS CONFIGURATION
+-- ============================================================================
+-- Description: Core Neovim settings and behaviors
+-- This file sets up the fundamental editing experience
+-- ============================================================================
 
 local cmd = vim.cmd
 local opt = vim.opt
@@ -7,111 +11,141 @@ local opt = vim.opt
 -- Global variables
 local g = vim.g
 local s = vim.s
-local indent = 4
+local indent = 4  -- Default indentation width (4 spaces)
 
-cmd([[
-	filetype plugin indent on
-]])
 
-opt.spell = false
-opt.backspace = {"eol", "start", "indent"} -- allow backspacing over everything in insert mode
+vim.g.loaded_ftplugin = 1
+vim.cmd("filetype indent on")
+
+-- ============================================================================
+-- CLIPBOARD SETTINGS
+-- ============================================================================
+-- Use system clipboard for all yank/paste operations
+-- This syncs Neovim clipboard with your OS clipboard
 opt.clipboard:append("unnamedplus")
-vim.opt.fileencoding = "utf-8"
-opt.encoding = "utf-8"
-opt.matchpairs = {"(:)", "{:}", "[:]", "<:>"}
-opt.syntax = "enable"
 
--- indention
-opt.autoindent = true -- auto indentation
-opt.expandtab = true -- convert tabs to spaces
-opt.shiftwidth = indent -- the number of spaces inserted for each indentation
-opt.smartindent = true -- make indenting smarter
-opt.softtabstop = indent -- when hitting <BS>, pretend like a tab is removed, even if spaces
-opt.tabstop = indent -- insert 2 spaces for a tab
-opt.shiftround = false
+-- ============================================================================
+-- ENCODING & TEXT
+-- ============================================================================
+opt.spell = false  -- Disable spell checking by default
+opt.backspace = { "eol", "start", "indent" }  -- Allow backspace over everything
+opt.fileencoding = "utf-8"  -- File encoding
+opt.encoding = "utf-8"      -- Internal encoding
+opt.matchpairs = { "(:)", "{:}", "[:]", "<:>" }  -- Matching pairs for % command
+opt.syntax = "enable"  -- Enable syntax highlighting
 
--- search
--- opt.hlsearch = true -- highlight all matches on previous search pattern
-opt.ignorecase = true -- ignore case in search patterns
-opt.smartcase = true -- smart case
+-- ============================================================================
+-- INDENTATION
+-- ============================================================================
+-- Configure how code indentation works
+opt.autoindent = true    -- Copy indent from current line when starting new line
+opt.expandtab = true     -- Use spaces instead of tabs
+opt.shiftwidth = indent  -- Number of spaces for each indentation level (4)
+opt.smartindent = true   -- Smart auto-indenting for C-like programs
+opt.softtabstop = indent -- Number of spaces for <Tab> key (4)
+opt.tabstop = indent     -- Number of spaces a <Tab> counts for (4)
+opt.shiftround = false   -- Don't round indent to multiple of shiftwidth
+
+-- ============================================================================
+-- SEARCH SETTINGS
+-- ============================================================================
+-- Configure search behavior
+-- opt.hlsearch = true   -- Highlight all search matches (disabled - use :noh)
+opt.ignorecase = true    -- Ignore case when searching
+opt.smartcase = true     -- Override ignorecase if search contains uppercase
+opt.wildmenu = true      -- Enhanced command-line completion
 -- opt.wildignore = opt.wildignore + {"*/node_modules/*", "*/.git/*", "*/vendor/*"}
-opt.wildmenu = true -- make tab completion for files/buffers act like bash
 
--- ui
--- opt.cursorline = true -- highlight the current line
-opt.laststatus = 2 -- only the last window will always have a status line
-opt.lazyredraw = true -- don"t update the display while executing macros
-opt.list = true
--- You can also add "space" or "eol", but I feel it"s quite annoying
+-- ============================================================================
+-- USER INTERFACE
+-- ============================================================================
+-- Configure how Neovim looks and behaves
+opt.cursorline = true     -- Highlight the current line (easier to find cursor)
+opt.laststatus = 2        -- Always show status line
+opt.lazyredraw = true     -- Don't redraw screen during macros (performance)
+opt.list = true           -- Show invisible characters
+
+-- Visible characters for tabs, trailing spaces, etc.
 opt.listchars = {
-    tab = "┊ ",
-    trail = "·",
-    extends = "»",
-    precedes = "«",
-    nbsp = "×"
+  tab = "┊ ",      -- Show tabs as vertical dotted line
+  trail = "·",     -- Show trailing spaces as dots
+  extends = "»",   -- Show when line extends beyond screen
+  precedes = "«",  -- Show when line precedes screen
+  nbsp = "×"       -- Show non-breaking spaces
 }
 
--- Hide cmd line
--- opt.cmdheight = 0 -- more space in the neovim command line for displaying messages
+-- Hide command line when not in use (optional)
+-- opt.cmdheight = 0
 
-opt.mouse = "a" -- allow the mouse to be used in neovim
-opt.number = true -- set numbered lines
-opt.relativenumber = true
-opt.scrolloff = 10 -- minimal number of screen lines to keep above and below the cursor
-opt.sidescrolloff = 3 -- minimal number of screen columns to keep to the left and right (horizontal) of the cursor if wrap is `false`
-opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
-opt.splitbelow = true -- open new split below
-opt.splitright = true -- open new split to the right
-opt.wrap = false -- display a long line
-opt.cursorline = true
+-- Mouse and line numbers
+opt.mouse = "a"           -- Enable mouse in all modes (like VSCode)
+opt.number = true         -- Show line numbers
+opt.relativenumber = true -- Show relative line numbers (useful for jumps)
+opt.scrolloff = 10        -- Keep 10 lines visible above/below cursor
+opt.sidescrolloff = 3     -- Keep 3 columns visible left/right of cursor
+opt.signcolumn = "yes"    -- Always show sign column (prevents text shifting)
+opt.splitbelow = true     -- New horizontal splits open below
+opt.splitright = true     -- New vertical splits open to the right
+opt.wrap = false          -- Don't wrap long lines (scroll horizontally)
 
--- backups
-opt.backup = false -- create a backup file
-opt.swapfile = false -- creates a swapfile
-opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+-- ============================================================================
+-- BACKUP & SWAP FILES
+-- ============================================================================
+-- Disable backup files (use version control instead)
+opt.backup = false        -- Don't create backup files
+opt.swapfile = false      -- Don't create swap files
+opt.writebackup = false   -- Don't create backup before overwriting
 
--- autocomplete
-opt.completeopt = {"menu", "menuone", "noselect"} -- mostly just for cmp
-opt.shortmess = opt.shortmess + {
-    c = true
-} -- hide all the completion messages, e.g. "-- XXX completion (YYY)", "match 1 of 2", "The only match", "Pattern not found"
+-- ============================================================================
+-- AUTOCOMPLETE
+-- ============================================================================
+-- Configure completion menu behavior
+opt.completeopt = { "menu", "menuone", "noselect" }  -- Completion options
+opt.shortmess = opt.shortmess + { c = true }         -- Don't show completion messages
 
--- By the way, -- INSERT -- is unnecessary anymore because the mode information is displayed in the statusline.
+-- Don't show mode in command line (shown in status line instead)
 opt.showmode = false
 
--- perfomance
--- remember N lines in history
-opt.history = 100 -- keep 100 lines of history
-opt.redrawtime = 1500
-opt.timeoutlen = 250 -- time to wait for a mapped sequence to complete (in milliseconds)
-opt.ttimeoutlen = 10
-opt.updatetime = 100 -- signify default updatetime 4000ms is not good for async update
+-- ============================================================================
+-- PERFORMANCE
+-- ============================================================================
+opt.history = 100         -- Remember 100 commands in history
+opt.redrawtime = 1500     -- Max time for syntax highlight redraw
+opt.timeoutlen = 250      -- Time to wait for key sequence (ms) - affects which-key
+opt.ttimeoutlen = 10      -- Time to wait for key code sequence (ms)
+opt.updatetime = 100      -- Faster update time (default 4000ms)
 
--- theme
-opt.termguicolors = true -- enable 24-bit RGB colors
+-- ============================================================================
+-- THEME & COLORS
+-- ============================================================================
+opt.termguicolors = true  -- Enable 24-bit RGB colors (required for modern themes)
 
--- persistent undo
--- Don"t forget to create folder $HOME/.local/share/nvim/undo
+-- ============================================================================
+-- PERSISTENT UNDO
+-- ============================================================================
+-- Keep undo history even after closing files (VSCode-like behavior)
+-- This means you can undo changes even after reopening a file!
 local undodir = vim.fn.stdpath("data") .. "/undo"
-opt.undofile = true -- enable persistent undo
-opt.undodir = undodir
-opt.undolevels = 1000
-opt.undoreload = 10000
+opt.undofile = true       -- Enable persistent undo
+opt.undodir = undodir     -- Directory to store undo files
+opt.undolevels = 1000     -- Maximum number of changes that can be undone
+opt.undoreload = 10000    -- Maximum lines to save for undo on buffer reload
 
--- fold
-opt.foldmethod = "marker"
+-- ============================================================================
+-- CODE FOLDING
+-- ============================================================================
+opt.foldmethod = "marker" -- Use markers for folding (like {{{ and }}})
 opt.foldlevel = 99
 
 -- Disable builtin plugins
-local disabled_built_ins = {"2html_plugin", "getscript", "getscriptPlugin", "gzip", "logipat", "netrw", "netrwPlugin",
-                            "netrwSettings", "netrwFileHandlers", "matchit", "tar", "tarPlugin", "rrhelper",
-                            "spellfile_plugin", "vimball", "vimballPlugin", "zip", "zipPlugin", "tutor", "rplugin",
-                            "synmenu", "optwin", "compiler", "bugreport", "ftplugin"}
+local disabled_built_ins = { "2html_plugin", "getscript", "getscriptPlugin", "gzip", "logipat", "netrw", "netrwPlugin",
+  "netrwSettings", "netrwFileHandlers", "matchit", "tar", "tarPlugin", "rrhelper",
+  "spellfile_plugin", "vimball", "vimballPlugin", "zip", "zipPlugin", "tutor", "rplugin",
+  "synmenu", "optwin", "compiler", "bugreport", "ftplugin" }
 
 for _, plugin in pairs(disabled_built_ins) do
-    g["loaded_" .. plugin] = 1
+  g["loaded_" .. plugin] = 1
 end
 
 -- Colorscheme
--- By default, use rose-pine
 cmd.colorscheme("catppuccin")

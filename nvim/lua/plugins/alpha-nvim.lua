@@ -19,7 +19,7 @@ return {
             dashboard.button("f", "🔍  Find File", ":Telescope find_files<CR>"),
 
             dashboard.button("c", "⚙️  ~/.config/", ":e ~/.config/<CR>"),
-            dashboard.button("d", "📂 ~/Dev/TFG/", ":e ~/Dev/TFG/<CR>"),
+            dashboard.button("d", "📂 TFM", ":e ~/Notes/tfm/<CR>"),
             dashboard.button("u", "📁 ~/OneDrive/UPM/", ":e ~/OneDrive/UPM/<CR>"),
 
             dashboard.button("q", "🚪  Quit", ":qa<CR>"),
