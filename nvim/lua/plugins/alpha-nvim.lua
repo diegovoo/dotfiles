@@ -18,9 +18,9 @@ return {
             dashboard.button("r", "🕒  Recent Files", ":Telescope oldfiles<CR>"),
             dashboard.button("f", "🔍  Find File", ":Telescope find_files<CR>"),
 
-            dashboard.button("c", "⚙️  ~/.config/", ":e ~/.config/<CR>"),
-            dashboard.button("d", "📂 TFM", ":e ~/Notes/tfm/<CR>"),
-            dashboard.button("u", "📁 ~/OneDrive/UPM/", ":e ~/OneDrive/UPM/<CR>"),
+            dashboard.button("c", "⚙️  Nvim config", ":e ~/.config/nvim/<CR>"),
+            dashboard.button("d", "📂  TFM", ":e ~/OneDrive/UPM/master/tfm/TFM/<CR>"),
+            dashboard.button("u", "📁  ~/OneDrive/UPM/", ":e ~/OneDrive/UPM/<CR>"),
 
             dashboard.button("q", "🚪  Quit", ":qa<CR>"),
         }

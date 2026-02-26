@@ -60,7 +60,7 @@ opt.wildmenu = true      -- Enhanced command-line completion
 -- USER INTERFACE
 -- ============================================================================
 -- Configure how Neovim looks and behaves
-opt.cursorline = true     -- Highlight the current line (easier to find cursor)
+opt.cursorline = false    -- Don't highlight the current line
 opt.laststatus = 2        -- Always show status line
 opt.lazyredraw = true     -- Don't redraw screen during macros (performance)
 opt.list = true           -- Show invisible characters

@@ -118,8 +118,7 @@ keymap.set("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", { noremap = true,
 -- Navigate between buffers (tabs)
 keymap.set("n", "<leader>bp", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true, desc = "← Previous buffer" })
 keymap.set("n", "<leader>bn", ":BufferLineCycleNext<CR>", { noremap = true, silent = true, desc = "→ Next buffer" })
-keymap.set("n", "<leader>bc", ":bdelete<CR>", { noremap = true, silent = true, desc = "✖ Close current buffer" })
-keymap.set("n", "<leader>bo", ":BufferLineCloseOthers<CR>", { noremap = true, silent = true, desc = "✖ Close other buffers" })
+keymap.set("n", "<C-w>c", ":bdelete<CR>", { noremap = true, silent = true, desc = "✖ Close current buffer" })
 
 -- Go to specific buffer by number (like Ctrl+1, Ctrl+2 in VSCode)
 keymap.set("n", "<C-1>", ":BufferLineGoToBuffer 1<CR>", { noremap = true, silent = true, desc = "Go to buffer 1" })

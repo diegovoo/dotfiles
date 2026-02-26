@@ -48,8 +48,8 @@ alias cpfile='xclip -sel c <'
 alias firejail-firefox='firejail --private=~/.firejail-browser-home firefox'
 
 # TLP
-alias performance='sudo cp /etc/tlp-performance.conf /etc/tlp.conf && sudo tlp start'
-alias power_save='sudo cp /etc/tlp-power-efficient.conf /etc/tlp.conf && sudo tlp start'
+alias zenbook_performance='sudo cp /etc/tlp-performance.conf /etc/tlp.conf && sudo tlp start'
+alias zenbook_power_save='sudo cp /etc/tlp-power-efficient.conf /etc/tlp.conf && sudo tlp start'
 
 # Zathura
 alias zathura='zathura --fork'
@@ -85,3 +85,4 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+export PATH="$HOME/.npm-global/bin:$PATH"

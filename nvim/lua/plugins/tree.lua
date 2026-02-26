@@ -31,7 +31,13 @@ return {{
             ignore = true
         },
         filesystem_watchers = {
-            enable = true
+            enable = true,
+            ignore_dirs = {
+              "/home/m1tus/OneDrive/UPM/master/tfm/TFM",
+              "build",
+              ".git",
+              "node_modules",
+            },
         },
         actions = {
             open_file = {
