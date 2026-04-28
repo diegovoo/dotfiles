@@ -5,8 +5,8 @@ return {
 
         vim.g.vimtex_compiler_latexmk = {
             executable = 'latexmk',
-            build_dir = 'build',
-            options = { '-pdf', '-interaction=nonstopmode', '-file-line-error', '-synctex=1', '-outdir=build' },
+            out_dir = 'build',
+            options = { '-pdf', '-interaction=nonstopmode', '-file-line-error', '-synctex=1' },
         }
 
         vim.g.vimtex_view_method = "zathura"
