@@ -1,12 +1,11 @@
-*
+/*
 
 !.gitignore
 !nvim/
-!onedrive/
+!onedrive/config
 !zsh/
-!alacritty/
+!alacritty/alacritty.toml
 !neofetch
 !README.md
-!emacs/
 !vscode-css/
 !obsidian-snippets/
